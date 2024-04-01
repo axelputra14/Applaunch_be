@@ -28,10 +28,10 @@ App.init(
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Title cannot be empty",
+          msg: "Exe directory cannot be empty",
         },
         notEmpty: {
-          msg: "Title cannot be empty",
+          msg: "Exe directory cannot be empty",
         },
       },
     },
@@ -40,10 +40,22 @@ App.init(
       allowNull: false,
       validate: {
         notNull: {
-          msg: "Title cannot be empty",
+          msg: "Image dir cannot be empty",
         },
         notEmpty: {
-          msg: "Title cannot be empty",
+          msg: "Image dir cannot be empty",
+        },
+      },
+    },
+    bgDir: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: "Background dir cannot be empty",
+        },
+        notEmpty: {
+          msg: "Background dir cannot be empty",
         },
       },
     },

@@ -7,5 +7,16 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
+  },
+  "name": "Applaunch_be",
+  "bin": "./index.js",
+  "pkg": {
+    "assets": "./**/*",
+    "target": [
+      "node18-linux-x64",
+      "node18-mac-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "../Applaunch/src-tauri/binaries"
   }
 }

@@ -36,27 +36,32 @@ class appController {
   static async addApp(req, res, next) {
     try {
       let exeAbsDir = "";
-      let imgAbsDir = "";
+      let imgFinalDir = "";
+      let bgFinalDir = "";
       const {
         title,
         developer,
         publisher,
         exeDir,
         imgDir,
+        bgDir,
         desc,
         lang,
         relDate,
       } = req.body;
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
-      imgAbsDir = "file:/" + imgDir.replace(/\\/g, "/");
+      imgFinalDir =
+        "http://localhost:25850/cover/" + imgDir.replace(/\\/g, "/");
+      bgFinalDir = "http://localhost:25850/bg/" + imgDir.replace(/\\/g, "/");
 
       await App.create({
         title: title,
         developer: developer,
         publisher: publisher,
         exeDir: exeAbsDir,
-        imgDir: imgAbsDir,
+        imgDir: imgFinalDir,
+        bgDir: bgFinalDir,
         desc: desc,
         lang: lang,
         relDate: relDate,
@@ -82,6 +87,7 @@ class appController {
         publisher,
         exeDir,
         imgDir,
+        bgDir,
         desc,
         lang,
         relDate,
@@ -94,7 +100,9 @@ class appController {
       }
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
-      imgAbsDir = "file:/" + imgDir.replace(/\\/g, "/");
+      imgFinalDir =
+        "http://localhost:25850/cover/" + imgDir.replace(/\\/g, "/");
+      bgFinalDir = "http://localhost:25850/bg/" + imgDir.replace(/\\/g, "/");
 
       await App.update(
         {
@@ -102,7 +110,8 @@ class appController {
           developer: developer,
           publisher: publisher,
           exeDir: exeAbsDir,
-          imgDir: imgAbsDir,
+          imgDir: imgFinalDir,
+          bgDir: bgFinalDir,
           desc: desc,
           lang: lang,
           relDate: relDate,

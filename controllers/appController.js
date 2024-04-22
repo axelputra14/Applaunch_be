@@ -3,7 +3,9 @@ const App = require("../models/app");
 class appController {
   static async listApp(req, res, next) {
     try {
-      const { count, rows } = await App.findAndCountAll();
+      const { count, rows } = await App.findAndCountAll({
+        order: [["title", "ASC"]],
+      });
 
       res.status(200).json({
         message: "Success get app list",

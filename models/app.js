@@ -20,9 +20,6 @@ App.init(
     developer: {
       type: DataTypes.STRING,
     },
-    publisher: {
-      type: DataTypes.STRING,
-    },
     exeDir: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,36 +43,6 @@ App.init(
           msg: "Image dir cannot be empty",
         },
       },
-    },
-    bgDir: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Background dir cannot be empty",
-        },
-        notEmpty: {
-          msg: "Background dir cannot be empty",
-        },
-      },
-    },
-    desc: {
-      type: DataTypes.STRING,
-    },
-    lang: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notNull: {
-          msg: "Title cannot be empty",
-        },
-        notEmpty: {
-          msg: "Title cannot be empty",
-        },
-      },
-    },
-    relDate: {
-      type: DataTypes.DATE,
     },
   },
   {

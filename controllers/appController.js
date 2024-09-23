@@ -17,6 +17,24 @@ class appController {
     }
   }
 
+  static async listOneApp(req, res, next) {
+    try {
+      const { id } = req.params;
+      const result = await App.findByPk(id);
+
+      if (!result) {
+        throw new Error("APP_NOT_FOUND");
+      }
+
+      res.status(200).json({
+        message: `Success get app with id ${id}`,
+        result,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
   static async addApp(req, res, next) {
     try {
       let exeAbsDir = "";

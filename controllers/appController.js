@@ -38,35 +38,16 @@ class appController {
   static async addApp(req, res, next) {
     try {
       let exeAbsDir = "";
-      // let imgFinalDir = "";
-      // let bgFinalDir = "";
-      const {
-        title,
-        developer,
-        publisher,
-        exeDir,
-        imgDir,
-        bgDir,
-        desc,
-        lang,
-        relDate,
-      } = req.body;
+
+      const { title, developer, exeDir, imgDir } = req.body;
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
-      // imgFinalDir =
-      // "http://localhost:25850/cover/" + imgDir.replace(/\\/g, "/");
-      // bgFinalDir = "http://localhost:25850/bg/" + bgDir.replace(/\\/g, "/");
 
       await App.create({
         title: title,
         developer: developer,
-        publisher: publisher,
         exeDir: exeAbsDir,
         imgDir,
-        bgDir,
-        desc: desc,
-        lang: lang,
-        relDate: relDate,
       });
 
       res.status(201).json({
@@ -82,19 +63,7 @@ class appController {
       const { id } = req.params;
 
       let exeAbsDir = "";
-      // let imgFinalDir = "";
-      // let bgFinalDir = "";
-      const {
-        title,
-        developer,
-        publisher,
-        exeDir,
-        imgDir,
-        bgDir,
-        desc,
-        lang,
-        relDate,
-      } = req.body;
+      const { title, developer, exeDir, imgDir } = req.body;
 
       const searchResult = await App.findByPk(id);
 
@@ -103,21 +72,14 @@ class appController {
       }
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
-      // imgFinalDir =
-      //   "http://localhost:25850/cover/" + imgDir.replace(/\\/g, "/");
-      // bgFinalDir = "http://localhost:25850/bg/" + bgDir.replace(/\\/g, "/");
 
       await App.update(
         {
           title: title,
           developer: developer,
-          publisher: publisher,
+
           exeDir: exeAbsDir,
           imgDir,
-          bgDir,
-          desc: desc,
-          lang: lang,
-          relDate: relDate,
         },
         {
           where: {

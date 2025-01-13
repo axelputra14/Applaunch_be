@@ -42,12 +42,13 @@ class appController {
       const { title, developer, exeDir, imgDir } = req.body;
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
+      let finalImg = imgDir.split("\\").pop();
 
       await App.create({
         title: title,
         developer: developer,
         exeDir: exeAbsDir,
-        imgDir,
+        imgDir: finalImg,
       });
 
       res.status(201).json({
@@ -72,6 +73,8 @@ class appController {
       }
 
       exeAbsDir = exeDir.replace(/\\/g, "/");
+      exeAbsDir = exeDir.replace(/\\/g, "/");
+      let finalImg = imgDir.split("\\").pop();
 
       await App.update(
         {
@@ -79,7 +82,7 @@ class appController {
           developer: developer,
 
           exeDir: exeAbsDir,
-          imgDir,
+          imgDir: finalImg,
         },
         {
           where: {
